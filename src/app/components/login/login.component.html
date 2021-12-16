@@ -1,0 +1,64 @@
+<div class="main">
+    <div>
+        <img src="../../../assets/image/leaf.png" class="leafimg" alt="leafimage" />
+
+        <div class="leftpanel">
+            <h3 class="heading">FARM FITTING</h3>
+
+            <div class="row">
+                <div class="col-sm">
+                    <button class="btn loginbtn"><a href="/login">Login</a></button>
+                </div>
+                <div class="col-sm">
+                    <button class="btn registerbtn"><a href="/register">register</a></button>
+                </div>
+            </div>
+            <div>
+                <p class="text-bottom">Skill Development Porject</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="limiter">
+        <div class="container login-panel">
+            <div class="wrap-login">
+
+                <form class="login-form validate-form" [formGroup]="LoginForm" (ngSubmit)="Submit()">
+                    <span class="login-form-title">
+                        Login
+                    </span>
+                    <div class="wrap-input validate-input" data-validate="Valid email is required: ex@abc.xyz">
+                        <input class="input" type="text" formControlName="email" (blur)="ValidateEmail()" pattern="[^@\s]+@[^@\s]+" placeholder="Email" required>
+                        <span class="focus-input"></span>
+                        <span class="symbol-input">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <div>
+                        <span *ngIf="invalidemail"><small style="color: rgb(238, 117, 117); margin-left: 30px; margin-top: -20px;">invalid Email</small></span>
+                    </div>
+                    <div class="wrap-input validate-input" data-validate="Password is required">
+                        <input class="input" type="password" formControlName="password" (blur)="ValidatePassword()" placeholder="Password" required>
+                        <span class="focus-input"></span>
+                        <span class="symbol-input">
+                            <i class="fa fa-lock" aria-hidden="true"></i>
+                        </span>
+                        <span *ngIf="invalidpass"><small style="color: rgb(238, 117, 117); margin-left: 30px; margin-top: -20px;">Password must contain atleast 8 letters</small></span>
+                    </div>
+                    <div class="container-login-form-btn">
+                        <button class="login-form-btn">Login</button>
+                    </div>
+                    <br>
+                    <div class="text-center p-t-136">
+                        not an user? &nbsp;
+                        <a class="txt2" href="/register">
+                            Create your Account
+                            <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>

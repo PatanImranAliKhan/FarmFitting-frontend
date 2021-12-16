@@ -1,0 +1,110 @@
+.about
+{
+    margin-top: 25px;
+}
+.feat .feat-box {
+    margin-bottom: 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.leftcontent
+{
+    padding-left: 30px;
+    padding-top: 15px;
+    background-color: #fff;
+    border-radius: 20px;
+}
+
+.feat .feat-box .feat-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 8px;
+    margin-right: 15px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    color: #fff;
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+}
+  
+.feat .feat-box .feat-icon i {
+    -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+}
+  
+.feat .feat-box .feat-content {
+    width: calc(100% - 115px);
+    float: right;
+}
+  
+.feat .feat-box:nth-child(1) .feat-icon {
+    background: #ffe0b3;
+    color: #ff9800;
+    -webkit-box-shadow: 0 2px 17px -3px #fff5e6;
+            box-shadow: 0 2px 17px -3px #fff5e6;
+}
+  
+.feat .feat-box:nth-child(2) .feat-icon {
+    background: #a9d1ec;
+    color: #2980b9;
+    -webkit-box-shadow: 0 2px 17px -3px #d2e7f5;
+            box-shadow: 0 2px 17px -3px #d2e7f5;
+}
+  
+.feat .feat-box:nth-child(3) .feat-icon {
+    background: #b7d6d8;
+    color: #4d8c8f;
+    -webkit-box-shadow: 0 2px 17px -3px #d8e9ea;
+            box-shadow: 0 2px 17px -3px #d8e9ea;
+}
+    
+#faq {
+    padding-bottom: 50px;
+}
+  
+#accordion .card-header {
+    cursor: pointer;
+}
+.team-box {
+    max-width: 350px;
+    position: relative;
+    margin-bottom: 30px;
+}
+  
+.team-box img {
+    height: 250px;
+    width: 90%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    border-radius: 5px;
+    border: 5px solid #fff;
+    -webkit-box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+  
+.team-box .team-info {
+    background: #fff;
+    border-radius: 5px;
+    text-align: center;
+    padding: 15px;
+    width: 90%;
+    margin-left: 10%;
+    margin-top: -20px;
+    -webkit-box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+  
+.team-box .team-info h4,
+.team-box .team-info p {
+    margin-bottom: 0;
+}

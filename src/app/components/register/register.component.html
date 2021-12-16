@@ -1,0 +1,128 @@
+<div>
+	<div>
+		<img src="../../../assets/image/leaf.png" class="leafimg" alt="leafimage" />
+
+		<div class="leftpanel">
+			<h3 class="heading">FARM FITTING</h3>
+
+			<!-- <div class="row">
+				<div class="col-sm" style="cursor: pointer;">
+					<button class="btn loginbtn"><a href="/login">Login</a></button>
+				</div>
+				<div class="col-sm" style="cursor: pointer;">
+					<button class="btn registerbtn"><a href="/register">register</a></button>
+				</div>
+			</div> -->
+			<div>
+				<p class="text-bottom">Skill Development Porject</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="limiter">
+		<div class="container register-panel">
+			<div class="wrap-register">
+				<form class="register-form validate-form" [formGroup]="registerForm">
+					<span class="register-form-title">
+						Register
+					</span>
+					<div class="wrap-input validate-input">
+						<input class="input" type="text" formControlName="name" placeholder="Username" required>
+						<span class="focus-input"></span>
+						<span class="symbol-input">
+							<i class="fa fa-user" aria-hidden="true"></i>
+						</span>
+					</div>
+					<div *ngIf="registerForm.controls['name'].invalid && (registerForm.controls['name'].dirty || registerForm.controls['name'].touched)"
+						class="alert">
+						<div *ngIf="registerForm.controls['name'].errors?.['required']">
+							<small>Name is required.</small>
+						</div>
+						<div *ngIf="registerForm.controls['name'].errors?.['minlength']">
+							<small>Name must be at least 2 characters long.</small>
+						</div>
+					</div>
+
+					<div class="wrap-input validate-input">
+						<input class="input" type="email" formControlName="email" pattern="[^@\s]+@[^@\s]+"  placeholder="Email" required>
+						<span class="focus-input"></span>
+						<span class="symbol-input">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+					</div>
+					<div *ngIf="registerForm.controls['email'].invalid && (registerForm.controls['email'].dirty || registerForm.controls['email'].touched)"
+						class="alert">
+						<div *ngIf="registerForm.controls['email'].errors?.['required']">
+							<small>Email is required.</small>
+						</div>
+						<div *ngIf="registerForm.controls['email'].errors?.['pattern']">
+							<small>Invalid Email pattern</small>
+						</div>
+						<div *ngIf="!registerForm.controls['email'].errors?.['pattern'] && registerForm.controls['email'].errors?.['minlength']">
+							<small>Invalid Email</small>
+						</div>
+					</div>
+					<div class="wrap-input validate-input">
+						<input class="input" type="text" formControlName="mobile" placeholder="Mobile Number" required>
+						<span class="focus-input"></span>
+						<span class="symbol-input">
+							<i class="fa fa-mobile" aria-hidden="true"></i>
+						</span>
+					</div>
+					<div *ngIf="registerForm.controls['mobile'].invalid && (registerForm.controls['mobile'].dirty || registerForm.controls['mobile'].touched)"
+						class="alert">
+						<div *ngIf="registerForm.controls['mobile'].errors?.['required']">
+							<small>Mobile number is required.</small>
+						</div>
+						<div *ngIf="registerForm.controls['mobile'].errors?.['minlength']">
+							<small>Mobile number must be at 10 digits</small>
+						</div>
+					</div>
+					<div class="wrap-input validate-input">
+						<input class="input" type="text" formControlName="location" placeholder="Address" required>
+						<span class="focus-input"></span>
+						<span class="symbol-input">
+							<i class="fa fa-globe" aria-hidden="true"></i>
+						</span>
+					</div>
+					<div *ngIf="registerForm.controls['location'].invalid && (registerForm.controls['location'].dirty || registerForm.controls['location'].touched)"
+						class="alert">
+						<div *ngIf="registerForm.controls['location'].errors?.['required']">
+							<small>Location is required.</small>
+						</div>
+						<div *ngIf="registerForm.controls['location'].errors?.['minlength']">
+							<small>Location must be at least 5 characters long.</small>
+						</div>
+					</div>
+					<div class="wrap-input validate-input">
+						<input class="input" type="password" formControlName="password" placeholder="Password" required>
+						<span class="focus-input"></span>
+						<span class="symbol-input">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
+					</div>
+					<div *ngIf="registerForm.controls['password'].invalid && (registerForm.controls['password'].dirty || registerForm.controls['password'].touched)"
+						class="alert">
+						<div *ngIf="registerForm.controls['password'].errors?.['required']">
+							<small>Password is required.</small>
+						</div>
+						<div *ngIf="registerForm.controls['password'].errors?.['minlength']">
+							<small>Password must be at least 8 characters long.</small>
+						</div>
+					</div>
+					<div class="container-register-form-btn">
+						<button class="register-form-btn" (click)="Submit()">Login</button>
+					</div>
+					<br>
+					<div class="text-center p-t-136">
+						Already have an account? &nbsp;
+						<a class="txt2" href="#">
+							register
+							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+						</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

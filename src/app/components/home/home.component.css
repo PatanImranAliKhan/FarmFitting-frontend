@@ -1,0 +1,92 @@
+.leftpanel
+{
+	width: 450px;
+    height: 100vh;
+    margin-left: 100px;
+    background-color: #266041;
+    position: absolute;
+    top: 0px;
+    z-index: -1;
+    animation: TopToBottom 2s;
+}
+
+.leafimg
+{
+    width: 90px;
+    height: 75px;
+    margin-left: 175px;
+    margin-top: 80px;
+    z-index: 1;
+    animation: TopToBottomLeaf 2s;
+}
+
+.heading
+{
+	margin-left: 80px;
+	margin-top: 350px;
+    color: #fff;
+    font-size: 45px;
+}
+
+.btn
+{
+	border-radius: 15px;
+	width: 80px;
+	height: 45px;
+	margin-top: 125px;
+    background-color: #c2c2c2;
+    border-radius: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.loginbtn
+{
+	margin-left: 60px;
+}
+
+.registerbtn
+{
+	margin-left: 75px;
+}
+
+a
+{
+    text-decoration: none;
+    color: #000;
+}
+
+.text-bottom
+{
+    margin: 0px auto;
+    color: #fff;
+    margin-top: 100px;
+    margin-left: 125px;
+}
+
+button
+{
+    cursor: pointer;
+}
+
+@keyframes TopToBottom {
+    0%   {
+        margin-left: 100px;
+        margin-top: -1000px;
+    }
+    100% {
+        margin-left: 100px;
+        margin-top: 0px;
+    }
+}
+
+@keyframes TopToBottomLeaf {
+    0%   {
+        margin-left: 100px;
+        margin-top: -100px;
+    }
+    100% {
+        margin-left: 175px;
+        margin-top: 80px;
+    }
+}

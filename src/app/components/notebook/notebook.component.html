@@ -1,0 +1,92 @@
+<div>
+    <app-header></app-header>
+    <div class="limiter">
+        <div class="container notebook-panel">
+            <div class="wrap-notebook">
+
+                <form class="notebook-form validate-form">
+                    <span class="notebook-form-title">
+                        NoteBook
+                    </span>
+                    <div class="wrap-input validate-input" data-validate="feedback">
+                        <textarea class="form-control" rows="5" placeholder="text..."></textarea>
+                        <span class="focus-input"></span>
+                    </div>
+                   
+                    <div class="wrap-input validate-input" data-validate="Price is required">
+                        <input class="input" type="number" placeholder="price" required>
+                        <span class="focus-input"></span>
+                        <span class="symbol-input">
+                            <i class="fa fa-money" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <div class="container-notebook-form-btn">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <button class="notebook-form-btn" (click)="AddtoExpences()">Add to Expences</button>
+                            </div>
+                            <div class="col-sm-6">
+                                <button class="notebook-form-btn" (click)="AddtoRevenues()">Add to Revenues</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="expenses-panel" >
+                    <h3>Expenses</h3>
+                    <div class="row" style="margin: 5px;">
+                        <p class="col-sm-8"><span class="lefttext">jhvy</span></p>
+                        <p class="col-sm-4"><span class="pricedisplay">12035</span></p>
+                    </div>
+                    <div class="row" style="margin: 5px;">
+                        <p class="col-sm-8"><span class="lefttext">Lorem ipsum def sit amet consectetur adipisicing elit. Repellat hic sint obcaecati ipsum quo aliquid voluptates aliquam. Odio totam soluta laudantium libero voluptas asperiores officiis cum veritatis iste aliquam. Eius.</span></p>
+                        <p class="col-sm-4"><span class="pricedisplay">12035</span></p>
+                    </div>
+                    <div class="row" style="margin: 5px;">
+                        <p class="col-sm-8"><span class="lefttext">abc</span></p>
+                        <p class="col-sm-4"><span class="pricedisplay">12035</span></p>
+                    </div>
+                    
+                    <div class="totalamount">
+                        <div class="row">
+                            <p class="col-sm-8"><span class="lefttext"><b>Total Amount : </b></span></p>
+                            <p class="col-sm-4"><span class="pricedisplay">123654</span></p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-6">
+                <div class="revenues-panel" >
+                    <h3>revenues</h3>
+                    <div class="row" style="margin: 5px;">
+                        <p class="col-sm-8"><span class="lefttext">jhvy</span></p>
+                        <p class="col-sm-4"><span class="pricedisplay">12035</span></p>
+                    </div>
+                    <div class="row" style="margin: 5px;">
+                        <p class="col-sm-8"><span class="lefttext">Lorem ipsum def sit amet consectetur adipisicing elit. Repellat hic sint obcaecati ipsum quo aliquid voluptates aliquam. Odio totam soluta laudantium libero voluptas asperiores officiis cum veritatis iste aliquam. Eius.</span></p>
+                        <p class="col-sm-4"><span class="pricedisplay">12035</span></p>
+                    </div>
+                    <div class="row" style="margin: 5px;">
+                        <p class="col-sm-8"><span class="lefttext">abc</span></p>
+                        <p class="col-sm-4"><span class="pricedisplay">12035</span></p>
+                    </div>
+                    
+                    <div class="totalamount">
+                        <div class="row">
+                            <p class="col-sm-8"><span class="lefttext"><b>Total Amount : </b></span></p>
+                            <p class="col-sm-4"><span class="pricedisplay">123654</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

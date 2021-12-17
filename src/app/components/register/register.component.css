@@ -121,6 +121,7 @@ button
     flex-wrap: wrap;
     justify-content: space-between;
     padding: 45px;
+    margin-bottom: 10px;
 }
 
 .register-form 
@@ -396,4 +397,13 @@ button
 .txt2
 {
     color: rgb(109, 109, 230);
+}
+
+.alert
+{
+    font-size: 15px;
+    color: rgb(238, 117, 117);
+    margin-left: 30px;
+    margin-top: -20px;
+    margin-bottom: 0px;
 }

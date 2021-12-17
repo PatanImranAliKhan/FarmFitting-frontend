@@ -1,1 +1,84 @@
-<p>Profile</p>
+<div>
+    <app-header></app-header>
+    <div>
+        <div class="wrapper bg-white mt-sm-5">
+            <h4 class="pb-4 border-bottom">Account settings</h4>
+            <div class="d-flex justify-content-center">
+                <img src="../../../assets/image/user.png" class="img" alt="">
+            </div>
+            <form class="py-2" [formGroup]="DetailForm">
+                <div class="row py-2">
+                    <div class="col-md-6">
+                        <label>User Name</label>
+                        <input type="text" class="bg-light form-control" formControlName="name">
+                        <div *ngIf="DetailForm.controls['name'].invalid && (DetailForm.controls['name'].dirty || DetailForm.controls['name'].touched)"
+						class="alert">
+						<div *ngIf="DetailForm.controls['name'].errors?.['required']">
+							<small>required.</small>
+						</div>
+						<div *ngIf="DetailForm.controls['name'].errors?.['minlength']">
+							<small>atleast 2 characters</small>
+						</div>
+					</div>
+                    </div>
+                    <div class="col-md-6 pt-md-0 pt-3">
+                        <label>Email</label>
+                        <p>imran@gmail.com</p>
+                    </div>
+                </div>
+                <br>
+                <div class="row py-2">
+                    <div class="col-md-6">
+                        <label>Phone Number</label>
+                        <input type="text" class="bg-light form-control" formControlName="mobile">
+                        <div *ngIf="DetailForm.controls['mobile'].invalid && (DetailForm.controls['mobile'].dirty || DetailForm.controls['mobile'].touched)"
+						class="alert">
+                            <div *ngIf="DetailForm.controls['mobile'].errors?.['required']">
+                                <small>required.</small>
+                            </div>
+                            <div *ngIf="DetailForm.controls['mobile'].errors?.['minlength']">
+                                <small>must be 10 digits</small>
+                            </div>
+					    </div>
+                    </div>
+                    <div class="col-md-6 pt-md-0 pt-3">
+                        <label>Address</label>
+                        <input type="tel" class="bg-light form-control" formControlName="location">
+                        <div *ngIf="DetailForm.controls['location'].invalid && (DetailForm.controls['location'].dirty || DetailForm.controls['location'].touched)"
+						class="alert">
+						<div *ngIf="DetailForm.controls['location'].errors?.['required']">
+							<small>required</small>
+						</div>
+						<div *ngIf="DetailForm.controls['location'].errors?.['minlength']">
+							<small>Atleast 5 characters</small>
+						</div>
+					</div>
+                    </div>
+                </div>
+                <br>
+                <div class="row py-2">
+                    <div class="col-md-6">
+                        <label>Old Password</label>
+                        <input type="text" class="bg-light form-control" >
+                    </div>
+                    <div class="col-md-6 pt-md-0 pt-3">
+                        <label>New Password</label>
+                        <input type="tel" class="bg-light form-control" formControlName="password">
+                        <div *ngIf="DetailForm.controls['password'].invalid && (DetailForm.controls['password'].dirty || DetailForm.controls['password'].touched)"
+						class="alert">
+						<div *ngIf="DetailForm.controls['password'].errors?.['required']">
+							<small>required</small>
+						</div>
+						<div *ngIf="DetailForm.controls['password'].errors?.['minlength']">
+							<small>Atleast 8 characters</small>
+						</div>
+					</div>
+                    </div>
+                </div>
+                <div class="py-3 pb-4 border-bottom">
+                    <button class="btn mr-3">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

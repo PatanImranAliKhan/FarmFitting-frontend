@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import './translate.js'
 
 @Component({
   selector: 'app-header',

@@ -10,10 +10,10 @@ export class RegisterComponent implements OnInit {
 
   public registerForm: FormGroup = new FormGroup({
     name: new FormControl('', [Validators.minLength(3), Validators.required]),
-    email: new FormControl('', Validators.minLength(10)),
-    mobile: new FormControl('' ,Validators.pattern("^[0-9]*$")),
-    location: new FormControl('', Validators.minLength(2)),
-    password: new FormControl('', Validators.minLength(8))
+    email: new FormControl('', [Validators.minLength(10), Validators.required]),
+    mobile: new FormControl('' ,[Validators.minLength(10),Validators.pattern("^[0-9]*$"), Validators.required]),
+    location: new FormControl('', [Validators.minLength(3), Validators.required]),
+    password: new FormControl('', [Validators.minLength(8), Validators.required])
   })
 
   public invalidname=false;
@@ -27,10 +27,10 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
     this.registerForm = new FormGroup({
       name: new FormControl('', [Validators.minLength(3), Validators.required]),
-      email: new FormControl('', Validators.minLength(10)),
-      mobile: new FormControl('' ,Validators.pattern("^[0-9]*$")),
-      location: new FormControl('', Validators.minLength(5)),
-      password: new FormControl('', Validators.minLength(8))
+      email: new FormControl('', [Validators.minLength(10), Validators.required]),
+      mobile: new FormControl('' ,[Validators.minLength(10),Validators.pattern("^[0-9]*$"), Validators.required]),
+      location: new FormControl('', [Validators.minLength(3), Validators.required]),
+      password: new FormControl('', [Validators.minLength(8), Validators.required])
     })
   }
 

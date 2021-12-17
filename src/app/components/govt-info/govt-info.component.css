@@ -1,0 +1,98 @@
+.govt-section
+{
+    margin: auto;
+    margin-top: 75px;
+}
+
+.searchbox
+{
+    width: 420px;
+    margin: 0 auto;
+}
+
+.searchinput
+{
+    margin-left: 10px;
+}
+
+.form-control:focus {
+    box-shadow: none;
+}
+
+.form-control::placeholder {
+    font-size: 0.95rem;
+    color: #aaa;
+    font-style: italic;
+}
+
+.govt-content
+{
+    margin-top: 50px;
+}
+
+.left-card
+{
+    position: fixed;
+    min-width: 300px;
+    background-color: #8b9edb;
+    border-radius: 15px;
+}
+
+ul
+{
+    padding: 50px 25px;
+    font-size: 20px;
+}
+
+
+ul li
+{
+    margin-bottom: 20px;
+}
+
+.radioinput
+{
+    height: 18px;
+    width: 18px;
+}
+
+ul p
+{
+    margin-top: -8px;
+    margin-left: 10px;
+}
+
+/* li
+{
+    text-decoration: none;
+} */
+
+.card-right
+{
+    padding: 50px 25px;
+}
+
+label
+{
+    margin-left: 50px;
+}
+
+select
+{
+    width: 75%;
+    margin: auto;
+}
+
+.detailsview
+{
+    margin-top: 25px;
+    padding: 10px;
+}
+
+.detailscard
+{
+    border-radius: 10px;
+    border: 2px solid #000;
+    background-color: rgb(209, 200, 200);
+    margin-bottom: 20px;
+}

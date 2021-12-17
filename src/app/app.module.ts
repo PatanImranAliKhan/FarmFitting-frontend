@@ -16,6 +16,8 @@ import { NotebookComponent } from './components/notebook/notebook.component';
 import { IndexComponent } from './components/index/index.component';
 import { WeatherReportComponent } from './components/weather-report/weather-report.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { SoilFertilityMapsComponent } from './components/soil-fertility-maps/soil-fertility-maps.component';
+import { GovtInfoComponent } from './components/govt-info/govt-info.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { ProfileComponent } from './components/profile/profile.component';
     NotebookComponent,
     IndexComponent,
     WeatherReportComponent,
-    ProfileComponent
+    ProfileComponent,
+    SoilFertilityMapsComponent,
+    GovtInfoComponent
   ],
   imports: [
     BrowserModule,

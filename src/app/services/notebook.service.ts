@@ -9,12 +9,22 @@ import { Router } from '@angular/router';
 })
 export class NotebookService {
 
-  public url: String = "http://localhost:8000";
+  public url: String = "http://localhost:2020";
   constructor(private http: HttpClient, private HttpErrorMsg: HttpErrorMessageService, private router: Router) { }
 
-  getUser(user: String,pass: String): any
+  addFinance(finance:any): any
   {
-    return this.http.get(`${this.url}/getuser/${user}/${pass}`)
+    return this.http.post(`${this.url}/user/finance/add/`,finance)
+    .pipe(catchError(this.HttpErrorMsg.handleError));
+  }
+  getFinance(email:string): any
+  {
+    return this.http.get(`${this.url}/user/finance/${email}/all`)
+    .pipe(catchError(this.HttpErrorMsg.handleError));
+  }
+  deleteRecord(id:any): any
+  {
+    return this.http.delete(`${this.url}/user/finance/delete/record/${id}`)
     .pipe(catchError(this.HttpErrorMsg.handleError));
   }
   

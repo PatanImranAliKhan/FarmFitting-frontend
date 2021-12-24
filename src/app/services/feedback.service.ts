@@ -9,18 +9,18 @@ import { Router } from '@angular/router';
 })
 export class FeedbackService {
 
-  public url: String = "http://localhost:2020/feedback";
+  public url: String = "http://localhost:2020";
   constructor(private http: HttpClient, private HttpErrorMsg: HttpErrorMessageService, private router: Router) { }
 
   addFeedbaackDetails(details: any): any
   {
-    return this.http.post(`${this.url}/send`,details)
+    return this.http.post(`${this.url}/query/send`,details)
     .pipe(catchError(this.HttpErrorMsg.handleError));
   }
 
   getFeedbacks(): any
   {
-    return this.http.get(`${this.url}/all`)
+    return this.http.get(`${this.url}/query/all`)
     .pipe(catchError(this.HttpErrorMsg.handleError));
   }
 }

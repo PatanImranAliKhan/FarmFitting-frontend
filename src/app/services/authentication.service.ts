@@ -9,30 +9,30 @@ import { Router } from '@angular/router';
 })
 export class AuthenticationService {
 
-  public url: String = "http://localhost:8000";
+  public url: String = "http://localhost:2020";
   constructor(private http: HttpClient, private HttpErrorMsg: HttpErrorMessageService, private router: Router) { }
 
   addUser(user: any): any
   {
-    return this.http.post(`${this.url}/adduser`,user)
+    return this.http.post(`${this.url}/user/add`,user)
     .pipe(catchError(this.HttpErrorMsg.handleError));
   }
   
-  deleteUser(user: any): any
+  deleteUser(email: any): any
   {
-    return this.http.delete(`${this.url}/delete/${user}`)
+    return this.http.delete(`${this.url}/user/delete/${email}`)
     .pipe(catchError(this.HttpErrorMsg.handleError));
   }
 
   updateUser(user: any): any
   {
-    return this.http.put(`${this.url}/update/${user.id}`,user)
+    return this.http.put(`${this.url}/user/update`,user)
     .pipe(catchError(this.HttpErrorMsg.handleError));
   }
 
-  getUser(user: String,pass: String): any
+  getUser(email: String,pass: String): any
   {
-    return this.http.get(`${this.url}/getuser/${user}/${pass}`)
+    return this.http.get(`${this.url}/user/login/${email}/${pass}`)
     .pipe(catchError(this.HttpErrorMsg.handleError));
   }
 

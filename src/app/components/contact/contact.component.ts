@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FeedbackService } from '../../services/feedback.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-contact',
@@ -13,7 +15,7 @@ export class ContactComponent implements OnInit {
     email: new FormControl(''),
     mobile: new FormControl(''),
     rate: new FormControl(),
-    message: new FormControl('', [Validators.required])
+    feedback: new FormControl('', [Validators.required])
   })
 
   star1=false;
@@ -24,7 +26,7 @@ export class ContactComponent implements OnInit {
   stars=[1,2,3,4,5];
   rating=0;
 
-  constructor() { }
+  constructor(private feedbackservice: FeedbackService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.ContactForm=new FormGroup({
@@ -32,8 +34,30 @@ export class ContactComponent implements OnInit {
       email: new FormControl('ImranAlikhan'),
       mobile: new FormControl('+46'),
       rating: new FormControl(),
-      message: new FormControl('', [Validators.required])
+      feedback: new FormControl('', [Validators.required])
     })
+  }
+
+  SubmitFeedback()
+  {    
+    this.feedbackservice.addFeedbaackDetails(this.ContactForm.value)
+    .subscribe((data: any) => {
+      console.log(data);
+      this.openDialogForSuccess();
+    },(err:any) => {
+      this.openDialogForError();
+    });
+    
+  }
+
+  openDialogForSuccess()
+  {    
+    this.toastr.success('Feedback has sent Successfully');
+  }
+
+  openDialogForError()
+  {
+    this.toastr.error("Received Error while sending feeding");
   }
 
   Star1()

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
+import { NotebookService } from '../../services/notebook.service';
 
 @Component({
   selector: 'app-notebook',
@@ -16,7 +18,7 @@ export class NotebookComponent implements OnInit {
   public expensesPrice=0
   public revenuesPrice=0;
 
-  constructor() { }
+  constructor(private toastr: ToastrService, private notebookservice: NotebookService) { }
 
   ngOnInit(): void {
     this.NoteForm = new FormGroup({
@@ -34,5 +36,15 @@ export class NotebookComponent implements OnInit {
   {
 
   }
+
+  DisplayErrorToastr(message: any)
+  {
+    this.toastr.error(message);
+  }
+
+  DisplaySuccessToastr(message: any)
+  {
+    this.toastr.success(message)
+  }   
 
 }

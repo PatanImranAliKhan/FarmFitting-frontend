@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
+import { AuthenticationService } from '../../services/authentication.service';
 
 @Component({
   selector: 'app-register',
@@ -21,8 +23,10 @@ export class RegisterComponent implements OnInit {
   public invalidmobile=false;
   public invalidlocation=false;
   public invalidpass=false;
+  public response="";
+  public errMess="";
 
-  constructor() { }
+  constructor(private toastr: ToastrService, private authenticate: AuthenticationService) { }
 
   ngOnInit(): void {
     this.registerForm = new FormGroup({
@@ -36,7 +40,51 @@ export class RegisterComponent implements OnInit {
 
   Submit()
   {
+    if(this.registerForm.value.name=="")
+    {
+      this.DisplayErrorToastr("name was required")
+      this.DisplayErrorToastr("Please fill All the Details..")
+    }
+    else if(this.registerForm.value.email=="")
+    {
+      this.DisplayErrorToastr("EMail was required")
+      this.DisplayErrorToastr("Please fill All the Details..")
+    }
+    else if(this.registerForm.value.mobile=="")
+    {
+      this.DisplayErrorToastr("Mobile number was Required")
+      this.DisplayErrorToastr("Please fill All the Details..")
+    }
+    else if(this.registerForm.value.location=="")
+    {
+      this.DisplayErrorToastr("Address was Required")
+      this.DisplayErrorToastr("Please fill All the Details..")
+    }
+    else if(this.registerForm.value.password=="")
+    {
+      this.DisplayErrorToastr("Password Was Required")
+      this.DisplayErrorToastr("Please fill All the Details..")
+    }
     console.log(this.registerForm.value)
+    this.authenticate.addUser(this.registerForm.value)
+      .subscribe((data: any) => {
+        this.response = data;
+        this.errMess = "";
+        console.log(this.response);
+      }, (errMess: any) => {
+        this.errMess = errMess;
+        this.response = "";
+      });
   }
+
+  DisplayErrorToastr(message: any)
+  {
+    this.toastr.error(message);
+  }
+
+  DisplaySuccessToastr(message: any)
+  {
+    this.toastr.success(message)
+  }  
 
 }

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutusComponent } from './components/aboutus/aboutus.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { CropInfoComponent } from './components/crop-info/crop-info.component';
 import { GovtInfoComponent } from './components/govt-info/govt-info.component';
 import { HomeComponent } from './components/home/home.component';
 import { IndexComponent } from './components/index/index.component';
@@ -21,7 +22,8 @@ const routes: Routes = [
   {path: 'notebook', component: NotebookComponent},
   {path: 'profile', component: ProfileComponent},
   {path: 'weatherreport', component: WeatherReportComponent},
-  {path: 'govtinfo', component: GovtInfoComponent}
+  {path: 'govtinfo', component: GovtInfoComponent},
+  {path: 'cropinfo', component: CropInfoComponent}
 ];
 
 @NgModule({

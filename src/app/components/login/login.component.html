@@ -43,10 +43,12 @@
                         <span class="symbol-input">
                             <i class="fa fa-lock" aria-hidden="true"></i>
                         </span>
+                    </div>
+                    <div>
                         <span *ngIf="invalidpass"><small style="color: rgb(238, 117, 117); margin-left: 30px; margin-top: -20px;">Password must contain atleast 8 letters</small></span>
                     </div>
                     <div class="container-login-form-btn">
-                        <button class="login-form-btn">Login</button>
+                        <button class="login-form-btn" [disabled]="LoginForm.invalid">Login</button>
                     </div>
                     <br>
                     <div class="text-center p-t-136">

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
+import { AuthenticationService } from '../../services/authentication.service';
 
 @Component({
   selector: 'app-profile',
@@ -16,7 +18,7 @@ export class ProfileComponent implements OnInit {
   })
   public details=[];
 
-  constructor() { }
+  constructor(private toastr: ToastrService, private authenticate: AuthenticationService,) { }
 
   ngOnInit(): void {
 
@@ -29,5 +31,15 @@ export class ProfileComponent implements OnInit {
       password: new FormControl('', Validators.minLength(8))
     })
   }
+
+  DisplayErrorToastr(message: any)
+  {
+    this.toastr.error(message);
+  }
+
+  DisplaySuccessToastr(message: any)
+  {
+    this.toastr.success(message)
+  }  
 
 }

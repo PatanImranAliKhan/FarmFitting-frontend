@@ -111,7 +111,7 @@
 						</div>
 					</div>
 					<div class="container-register-form-btn">
-						<button class="register-form-btn" (click)="Submit()">Login</button>
+						<button class="register-form-btn" [disabled]="registerForm.invalid" (click)="Submit()">Login</button>
 					</div>
 					<br>
 					<div class="text-center p-t-136">

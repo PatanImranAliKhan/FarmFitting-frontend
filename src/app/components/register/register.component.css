@@ -1,7 +1,7 @@
 .leftpanel
 {
 	width: 450px;
-    height: 100vh;
+    min-height: 100vh;
     margin-left: 100px;
     background-color: #266041;
     position: absolute;

@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ToastrModule } from 'ngx-toastr';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +20,10 @@ import { WeatherReportComponent } from './components/weather-report/weather-repo
 import { ProfileComponent } from './components/profile/profile.component';
 import { SoilFertilityMapsComponent } from './components/soil-fertility-maps/soil-fertility-maps.component';
 import { GovtInfoComponent } from './components/govt-info/govt-info.component';
+import { CropInfoComponent } from './components/crop-info/crop-info.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CropSuggestionComponent } from './components/crop-suggestion/crop-suggestion.component';
+
 
 @NgModule({
   declarations: [
@@ -33,13 +39,18 @@ import { GovtInfoComponent } from './components/govt-info/govt-info.component';
     WeatherReportComponent,
     ProfileComponent,
     SoilFertilityMapsComponent,
-    GovtInfoComponent
+    GovtInfoComponent,
+    CropInfoComponent,
+    CropSuggestionComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

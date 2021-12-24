@@ -1,14 +1,12 @@
 .header
 {
     background-color: #266041;
+    padding: 10px;
 }
 
 nav
 {
     font-family: "Roboto", sans-serif;
-}
-nav 
-{
     color: #fff;
 }
 

@@ -6,7 +6,7 @@
     background-color: #266041;
     position: absolute;
     top: 0px;
-    z-index: -1;
+    /* z-index: -1; */
     animation: TopToBottom 2s;
 }
 
@@ -16,7 +16,8 @@
     height: 75px;
     margin-left: 175px;
     margin-top: 80px;
-    z-index: 1;
+    /* z-index: 1; */
+    position: absolute;
     animation: TopToBottomLeaf 2s;
 }
 
@@ -85,6 +86,8 @@ button
     width: 40%;
     margin: 0 auto;
     margin-left: 400px;
+    position: absolute;
+    top: 15%;
 }
 
 .login-panel

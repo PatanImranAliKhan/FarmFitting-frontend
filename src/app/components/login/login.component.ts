@@ -59,13 +59,22 @@ export class LoginComponent implements OnInit {
   Submit() {
     console.log(this.LoginForm)
     
-    this.authenticate.getUser("imran", "imran")
+    this.authenticate.getUser(this.LoginForm.value.email,this.LoginForm.value.password)
       .subscribe((details: any) => {
         this.details = details;
         this.errMess = "";
-        console.log(this.details.a);
+        console.log(this.details);
         // localStorage.setItem('user', JSON.stringify(this.details.resp[0]));
-        this.router.navigate(['/home']);
+
+        if(this.details.status=="Found"){
+          this.DisplaySuccessToastr("Login Success");
+          this.authenticate.User = this.LoginForm.value.email
+          this.router.navigate(['/home']);
+        }
+        else{
+          this.DisplayErrorToastr("Login Failed");
+          this.router.navigate(['/login']);
+        }
       }, (errMess: any) => {
         this.errMess = errMess;
         this.details = null;

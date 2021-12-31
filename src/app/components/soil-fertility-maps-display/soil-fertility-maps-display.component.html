@@ -1,0 +1,33 @@
+<div id="top">
+  <app-header></app-header>
+  <section >
+    <div class="content">
+      <div class="container">
+        <div *ngIf="imageurl" style="margin: 0px auto;">
+          <img [src]="imageurl" width="750" height="750" alt="soilfertilitymap">
+        </div>
+      </div>
+      <div class="container">
+        <div class="table-responsive custom-table-responsive">
+          <table class="table custom-table">
+            <thead>
+              <tr>
+                <th scope="col">
+                  District
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let dist of districtresult">
+                <td>{{dist}}</td>
+                <td *ngFor="let ch of chemicals">
+                  <span href="#top" style="cursor: pointer;" (click)="GetSoilFertilityMap(dist,ch)">{{ch}}</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

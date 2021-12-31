@@ -1,1 +1,16 @@
-<p>soil-fertility-maps works!</p>
+<div>
+    <app-header></app-header>
+    <section style="margin-top: 100px;">
+        <div class="container">
+            <div class="row">
+                <div *ngFor="let state of states" class="col-sm-3">
+                    <div class="card" (click)="ClickFunction(state)">
+                        <div class="card-body">
+                            {{state}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

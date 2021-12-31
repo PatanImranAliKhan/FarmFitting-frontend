@@ -7,39 +7,33 @@ import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthenticationService {
+export class WeatherService {
 
   public url: String = "http://localhost:2020";
   constructor(private http: HttpClient, private HttpErrorMsg: HttpErrorMessageService, private router: Router) { }
 
-  addUser(user: any): any
-  {
-    return this.http.post(`${this.url}/user/add`,user)
-    .pipe(catchError(this.HttpErrorMsg.handleError));
-  }
-  
-  deleteUser(email: any): any
-  {
-    return this.http.delete(`${this.url}/user/delete/${email}`)
+  getCities(city:any):any{
+    return this.http.get(`${this.url}/user/weather/find_city/${city}`)
     .pipe(catchError(this.HttpErrorMsg.handleError));
   }
 
-  updateUser(user: any): any
-  {
-    return this.http.put(`${this.url}/user/update`,user)
+  dailyForecast(cityid:any):any{
+    return this.http.get(`${this.url}/user/weather/city/daily_report/${cityid}`)
     .pipe(catchError(this.HttpErrorMsg.handleError));
   }
 
-  getUser(email: String,pass: String): any
-  {
-    return this.http.get(`${this.url}/user/login/${email}/${pass}`)
+  fivedayForecast(cityid:any):any{
+    return this.http.get(`${this.url}/user/weather/city/5days_report/${cityid}`)
     .pipe(catchError(this.HttpErrorMsg.handleError));
   }
 
-  findUser(email: String): any
-  {
-    return this.http.get(`${this.url}/user/getdetails/${email}`)
+  twelveHourForecast(cityid:any):any{
+    return this.http.get(`${this.url}/user/weather/city/12hour_report/${cityid}`)
     .pipe(catchError(this.HttpErrorMsg.handleError));
   }
 
+  currentCondition(cityid:any):any{
+    return this.http.get(`${this.url}/user/weather/city/currentcondition/${cityid}`)
+    .pipe(catchError(this.HttpErrorMsg.handleError));
+  }
 }

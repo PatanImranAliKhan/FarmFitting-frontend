@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import './translate.js'
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-header',
@@ -8,9 +9,21 @@ import './translate.js'
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  public languages = [['English','EN'], ['French','FR'], ['Belgium','BG']];
+
+  constructor(private translate: TranslateService) { 
+    
+    translate.setDefaultLang('en');
+    // const browserlang=translate.getBrowserLang();
+    // translate.use(browserlang?browserlang:'en');
+    // translate.use('FR');
+  }
 
   ngOnInit(): void {
+  }
+
+  translateLanguageTo(lang: string) {
+    this.translate.use(lang);
   }
 
 }

@@ -10,6 +10,8 @@ import { LoginComponent } from './components/login/login.component';
 import { NotebookComponent } from './components/notebook/notebook.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { RegisterComponent } from './components/register/register.component';
+import { SoilFertilityMapsDisplayComponent } from './components/soil-fertility-maps-display/soil-fertility-maps-display.component';
+import { SoilFertilityMapsComponent } from './components/soil-fertility-maps/soil-fertility-maps.component';
 import { WeatherReportComponent } from './components/weather-report/weather-report.component';
 
 const routes: Routes = [
@@ -23,7 +25,9 @@ const routes: Routes = [
   {path: 'profile', component: ProfileComponent},
   {path: 'weatherreport', component: WeatherReportComponent},
   {path: 'govtinfo', component: GovtInfoComponent},
-  {path: 'cropinfo', component: CropInfoComponent}
+  {path: 'cropinfo', component: CropInfoComponent},
+  {path: 'soil-fertility-maps', component: SoilFertilityMapsComponent},
+  {path: 'displaymaps/:state', component: SoilFertilityMapsDisplayComponent}
 ];
 
 @NgModule({

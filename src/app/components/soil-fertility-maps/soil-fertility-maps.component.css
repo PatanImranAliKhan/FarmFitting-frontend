@@ -1,0 +1,17 @@
+.card
+{
+    background-color: #fff;
+    border: 1px solid #fff;
+    color: #000;
+    padding: 10px 30px;
+    width: 150px 50px;
+    margin: auto;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+.card-body
+{
+    text-align: center;
+    font-size: 18px;
+}

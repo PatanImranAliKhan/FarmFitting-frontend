@@ -7,20 +7,14 @@ import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
-export class FeedbackService {
+export class CropInfoService {
 
-  public url: String = "http://localhost:2020";
+  public url: String =`https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelType=any&maxResults=30`;
   constructor(private http: HttpClient, private HttpErrorMsg: HttpErrorMessageService, private router: Router) { }
 
-  addFeedbaackDetails(details: any): any
-  {
-    return this.http.post(`${this.url}/query/send`,details)
+  getYoutubeSearchData(searchdata :any):any{
+    return this.http.get(`${this.url}&q=${searchdata}&key=AIzaSyAXVfCImeZ3svarjC-DmS9mpBLbKgoX2aM`)
     .pipe(catchError(this.HttpErrorMsg.handleError));
   }
-
-  getFeedbacks(): any
-  {
-    return this.http.get(`${this.url}/query/all`)
-    .pipe(catchError(this.HttpErrorMsg.handleError));
-  }
+  
 }

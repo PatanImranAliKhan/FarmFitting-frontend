@@ -18,6 +18,9 @@ export class ContactComponent implements OnInit {
     feedback: new FormControl('', [Validators.required])
   })
 
+  public details: any;
+  public userdata: any;
+
   star1=false;
   star2=false;
   star3=false;
@@ -29,10 +32,14 @@ export class ContactComponent implements OnInit {
   constructor(private feedbackservice: FeedbackService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
+
+    this.details=localStorage.getItem('user');
+    this.userdata=JSON.parse(this.details)
+
     this.ContactForm=new FormGroup({
-      name: new FormControl('Imran'),
-      email: new FormControl('ImranAlikhan'),
-      mobile: new FormControl('+46'),
+      name: new FormControl({value: this.userdata.name, disabled: true}),
+      email: new FormControl({value: this.userdata.email, disabled: true}),
+      mobile: new FormControl({value: this.userdata.mobile, disabled: true}),
       rating: new FormControl(),
       feedback: new FormControl('', [Validators.required])
     })
@@ -40,11 +47,20 @@ export class ContactComponent implements OnInit {
 
   SubmitFeedback()
   {    
-    this.feedbackservice.addFeedbaackDetails(this.ContactForm.value)
+    const object = {
+      name: this.userdata.name,
+      email: this.userdata.email,
+      mobile: this.userdata.mobile,
+      rating: this.ContactForm.value.rating,
+      feedback: this.ContactForm.value.feedback
+    }
+    this.feedbackservice.addFeedbaackDetails(object)
     .subscribe((data: any) => {
       console.log(data);
       this.openDialogForSuccess();
     },(err:any) => {
+      console.log(err);
+      
       this.openDialogForError();
     });
     

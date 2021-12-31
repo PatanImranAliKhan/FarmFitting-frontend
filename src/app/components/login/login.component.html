@@ -12,7 +12,7 @@
                         Login
                     </span>
                     <div class="wrap-input validate-input" data-validate="Valid email is required: ex@abc.xyz">
-                        <input class="input" type="text" formControlName="email" (blur)="ValidateEmail()" pattern="[^@\s]+@[^@\s]+" placeholder="Email" required>
+                        <input class="input" type="email" formControlName="email" (blur)="ValidateEmail()" pattern="[^@\s]+@[^@\s]+" placeholder="Email" required>
                         <span class="focus-input"></span>
                         <span class="symbol-input">
                             <i class="fa fa-envelope" aria-hidden="true"></i>
@@ -32,8 +32,16 @@
                         <span *ngIf="invalidpass"><small style="color: rgb(238, 117, 117); margin-left: 30px; margin-top: -20px;">Password must contain atleast 8 letters</small></span>
                     </div>
                     <div class="container-login-form-btn">
+						<div *ngIf="LoginForm.invalid">
+							<button class="login-form-btn" >Please fill all the fields</button>
+						</div>
+						<div *ngIf="!LoginForm.invalid">
+							<button class="login-form-btn" (click)="Submit()">Login</button>
+						</div>
+					</div>
+                    <!-- <div class="container-login-form-btn">
                         <button class="login-form-btn" [disabled]="LoginForm.invalid">Login</button>
-                    </div>
+                    </div> -->
                     <br>
                     <div class="text-center p-t-136">
                         not an user? &nbsp;

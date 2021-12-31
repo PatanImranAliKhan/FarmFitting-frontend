@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ParamMap, ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthenticationService } from '../../services/authentication.service';
 
@@ -26,13 +27,13 @@ export class RegisterComponent implements OnInit {
   public response="";
   public errMess="";
 
-  constructor(private toastr: ToastrService, private authenticate: AuthenticationService) { }
+  constructor(private route: ActivatedRoute, private router: Router, private toastr: ToastrService, private authenticate: AuthenticationService) { }
 
   ngOnInit(): void {
     this.registerForm = new FormGroup({
       name: new FormControl('', [Validators.minLength(3), Validators.required]),
       email: new FormControl('', [Validators.minLength(10), Validators.required]),
-      mobile: new FormControl('' ,[Validators.minLength(10),Validators.pattern("^[0-9]*$"), Validators.required]),
+      mobile: new FormControl('' ,[Validators.minLength(10),Validators.maxLength(10),Validators.pattern("^[0-9]*$"), Validators.required]),
       location: new FormControl('', [Validators.minLength(3), Validators.required]),
       password: new FormControl('', [Validators.minLength(8), Validators.required])
     })
@@ -40,40 +41,45 @@ export class RegisterComponent implements OnInit {
 
   Submit()
   {
-    if(this.registerForm.value.name=="")
-    {
-      this.DisplayErrorToastr("name was required")
-      this.DisplayErrorToastr("Please fill All the Details..")
-    }
-    else if(this.registerForm.value.email=="")
-    {
-      this.DisplayErrorToastr("EMail was required")
-      this.DisplayErrorToastr("Please fill All the Details..")
-    }
-    else if(this.registerForm.value.mobile=="")
-    {
-      this.DisplayErrorToastr("Mobile number was Required")
-      this.DisplayErrorToastr("Please fill All the Details..")
-    }
-    else if(this.registerForm.value.location=="")
-    {
-      this.DisplayErrorToastr("Address was Required")
-      this.DisplayErrorToastr("Please fill All the Details..")
-    }
-    else if(this.registerForm.value.password=="")
-    {
-      this.DisplayErrorToastr("Password Was Required")
-      this.DisplayErrorToastr("Please fill All the Details..")
-    }
-    console.log(this.registerForm.value)
+    
+    // console.log(this.registerForm.value)
+
+    this.authenticate.findUser(this.registerForm.value.email)
+    .subscribe((resp: any) => {
+      if(resp!=null)
+      {
+        this.DisplayErrorToastr("This Email was already registered.")
+        return;
+      }
+      else
+      {
+        this.Register();
+      }
+      
+    })
+
+    
+  }
+
+  Register()
+  {
     this.authenticate.addUser(this.registerForm.value)
       .subscribe((data: any) => {
-        this.response = data;
-        this.errMess = "";
-        console.log(this.response);
+        localStorage.setItem('user',JSON.stringify(this.registerForm.value));
+        if(data.status=="Success")
+        {
+          setTimeout(() => {
+            this.router.navigate(['/home']);
+          }, 2000);
+          this.DisplaySuccessToastr("Registration was Success");
+        }
+        else
+        {
+          this.DisplayErrorToastr("Some Error has been Occured please try after some time.")
+        }
+
       }, (errMess: any) => {
-        this.errMess = errMess;
-        this.response = "";
+        this.DisplayErrorToastr("Some Error has been Occured please  try after some time.")
       });
   }
 

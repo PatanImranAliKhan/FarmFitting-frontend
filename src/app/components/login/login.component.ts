@@ -18,8 +18,8 @@ export class LoginComponent implements OnInit {
 
   public invalidemail = false;
   public invalidpass = false;
-  public errMess: String="";
-  public details: any=[]
+  public errMess: String = "";
+  public details: any = []
 
   constructor(private route: ActivatedRoute, private router: Router, private authenticate: AuthenticationService, private toastr: ToastrService) { }
 
@@ -53,37 +53,48 @@ export class LoginComponent implements OnInit {
     else {
       this.invalidpass = true;
     }
-    console.log(this.invalidpass)
   }
 
   Submit() {
-    console.log(this.LoginForm)
-    
-    this.authenticate.getUser("imran", "imran")
+    // console.log(this.LoginForm)
+
+    this.authenticate.getUser(this.LoginForm.value.email, this.LoginForm.value.password)
       .subscribe((details: any) => {
-        this.details = details;
-        this.errMess = "";
-        console.log(this.details.a);
-        // localStorage.setItem('user', JSON.stringify(this.details.resp[0]));
-        this.router.navigate(['/home']);
+        if (details.status == "Found") {
+          console.log("hello");
+          
+          this.LoginSuccess();
+        }
+        else {
+          this.DisplayErrorToastr("Invalid Credentails");
+        }
+        // 
       }, (errMess: any) => {
         this.errMess = errMess;
         this.details = null;
       });
-    const message = "imran";
+  }
+
+  LoginSuccess() {
+    this.authenticate.findUser(this.LoginForm.value.email)
+      .subscribe((data: any) => {
+        localStorage.setItem('user', JSON.stringify(data));
+      })
+    setTimeout(() => {
+      this.router.navigate(['/home']);
+    }, 2000);
+    this.DisplaySuccessToastr("Login Success")
   }
 
   getformControl() {
     return this.LoginForm.controls;
   }
 
-  DisplayErrorToastr(message: any)
-  {
+  DisplayErrorToastr(message: any) {
     this.toastr.error(message);
   }
 
-  DisplaySuccessToastr(message: any)
-  {
+  DisplaySuccessToastr(message: any) {
     this.toastr.success(message)
   }
 

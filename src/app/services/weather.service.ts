@@ -13,7 +13,13 @@ export class WeatherService {
   constructor(private http: HttpClient, private HttpErrorMsg: HttpErrorMessageService, private router: Router) { }
 
   getCities(city:any):any{
+    // http://localhost:2020/user/weather/find_city/Vijayawada
     return this.http.get(`${this.url}/user/weather/find_city/${city}`)
+    .pipe(catchError(this.HttpErrorMsg.handleError));
+  }
+
+  getData(city:any):any{
+    return this.http.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=96e27da4f61bebe5c6e5c7c18c453252&units=imperial`)
     .pipe(catchError(this.HttpErrorMsg.handleError));
   }
 

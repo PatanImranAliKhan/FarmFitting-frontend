@@ -16,9 +16,45 @@
                 </div>
             </div>
         </div>
+        <div style="margin: 20px auto;">
+            <div class="card dashboard">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <circle-progress [percent]="temppercent" [radius]="100" [outerStrokeWidth]="16" [innerStrokeWidth]="8" [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'" [animation]="true" [animationDuration]="300"></circle-progress>
+                            <label>
+                                <p>{{temperature}}</p>
+                                <b>Temperature</b>
+                            </label>
+                        </div>
+                        <div class="col-sm-3">
+                            <circle-progress [percent]="humiditypercent" [radius]="100" [outerStrokeWidth]="16" [innerStrokeWidth]="8" [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'" [animation]="true" [animationDuration]="300"></circle-progress>
+                            <label>
+                                <p>{{pressure}}</p>
+                                <b>Pressure</b>
+                            </label>
+                        </div>
+                        <div class="col-sm-3">
+                            <circle-progress [percent]="pressurepercent" [radius]="100" [outerStrokeWidth]="16" [innerStrokeWidth]="8" [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'" [animation]="true" [animationDuration]="300"></circle-progress>
+                            <label style="margin-left: 100px;">
+                                <p>{{humidity}}</p>
+                                <b>Humidity</b>
+                            </label>
+                        </div>
+                        <div class="col-sm-3">
+                            <circle-progress [percent]="windpercent" [radius]="100" [outerStrokeWidth]="16" [innerStrokeWidth]="8" [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'" [animation]="true" [animationDuration]="300"></circle-progress>
+                            <label style="margin-left: 100px;">
+                                <p>{{windspeed}}</p>
+                                <b>Wind Speed</b>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div>
-            <div class="page-content page-container" id="page-content">
+            <!-- <div class="page-content page-container" id="page-content">
                 <div class="padding">
                     <div class="row container d-flex justify-content-center">
                         <div class="col-lg-8 grid-margin stretch-card">
@@ -73,7 +109,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </div>

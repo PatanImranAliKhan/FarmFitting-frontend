@@ -1,9 +1,9 @@
 .searchbox
 {
 	position: fixed;
-	width: 420px;
+	width: 620px;
     margin: 30px auto;
-	left: 57%;
+	left: 45%;
 }
 
 .searchinput
@@ -74,7 +74,7 @@
 .rightdisplay
 {
 	position: fixed;
-	top: 23%;
+	top: 27%;
 	width: 55%;
 	right: 2%;
 	
@@ -120,3 +120,4 @@ pagination-controls
 	margin-bottom: 30px;
 	font-size: 20px;
 }
+

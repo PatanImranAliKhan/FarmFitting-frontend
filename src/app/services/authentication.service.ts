@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class AuthenticationService {
 
-  public url: String = "http://localhost:2020";
+  public url: String = "http://ec2-34-205-156-27.compute-1.amazonaws.com:2020";
   constructor(private http: HttpClient, private HttpErrorMsg: HttpErrorMessageService, private router: Router) { }
 
   addUser(user: any): any

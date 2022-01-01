@@ -15,8 +15,10 @@ export class CropInfoComponent implements OnInit {
   public responses=[];
   public showpaginator=false;
   public title="Crop Cultivation";
+  public selectdata: any="Cultivation";
   public url="https://www.youtube.com/embed/s-mreQn8RHM";
-  public options=[];
+  public options=['Potato Cultivation','Tomato Cultivation','Brinjal Cultivation','','','','','','','','','','','',
+  '','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','',''];
 
   totalresponses=30;
   page: number = 1;

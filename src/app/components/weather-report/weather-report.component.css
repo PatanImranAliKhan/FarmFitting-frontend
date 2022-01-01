@@ -172,3 +172,15 @@ p {
 .card-weather .weakly-weather .weakly-weather-item i {
     font-size: 1.2rem
 }
+
+.dashboard
+{
+    width: 80%;
+    margin: auto;
+    border-radius: 20px;
+}
+
+label
+{
+    margin-left: 80px;
+}

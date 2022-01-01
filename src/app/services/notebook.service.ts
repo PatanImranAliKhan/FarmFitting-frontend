@@ -29,6 +29,12 @@ export class NotebookService {
     .pipe(catchError(this.HttpErrorMsg.handleError));
   }
 
+  updateFinance(finance: any): any
+  {
+    return this.http.put(`${this.url}/user/updatefinance`,finance)
+    .pipe(catchError(this.HttpErrorMsg.handleError));
+  }
+
   deleteRecord(id:any): any
   {
     return this.http.delete(`${this.url}/user/finance/delete/record/${id}`)

@@ -2,8 +2,8 @@
 {
 	position: fixed;
 	width: 420px;
-    margin: 20px auto;
-	left: 42%;
+    margin: 30px auto;
+	left: 57%;
 }
 
 .searchinput
@@ -75,16 +75,16 @@
 {
 	position: fixed;
 	top: 23%;
-	width: 50%;
+	width: 55%;
 	right: 2%;
 	
 }
 
-.videodisplay
+/* .videodisplay
 {
 	margin: 0 auto;
 	border-radius: 15px;
-}
+} */
 
 .card
 {
@@ -95,8 +95,8 @@
 {
 	width: 100%;
 	height: auto;
-	padding: 20px;
-	margin-left: 50px;
+	padding: 12px;
+	/* margin-left: 50px; */
 }
 
 iframe

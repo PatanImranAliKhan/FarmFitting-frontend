@@ -35,12 +35,14 @@
                         <div class="box">
                             <!-- {{response['snippet']['thumbnails']['default']['url']}} -->
                             <div class="row align-center">
-                                <div class="col-md-7">
+                                <!-- <div class="col-md-1">
+                                </div> -->
+                                <div class="col-md-7" style="margin-left: 20px;">
                                     <div class="video-block">
-                                        <img [src]="response['snippet']['thumbnails']['high']['url']" width="325" height="215">
+                                        <img [src]="response['snippet']['thumbnails']['high']['url']" style="border-radius: 15px;" width="325" height="215">
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-4" style="overflow-wrap: break-word;">
                                     <h1 class="display-4 font-weight-bold">{{title}}</h1>
                                     <p class="text-muted">{{response['snippet']['title']}}</p>
                                     <button type="button" class="btn btn-primary" (click)="VideoSelect(i)" >
@@ -75,10 +77,10 @@
                 </div> -->
 
                 <div class="rightdisplay">
-                    <div class="card">
+                    <div >
                         <div class="rightvideodisplay">
                             <div class="videodisplay">
-                                <iframe width="600" height="500" class="videodisplay" [src]="videolink" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <iframe width="800" height="450" class="videodisplay" [src]="videolink" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                 <!-- <iframe [src]="videolink" allowFullScreen title="Video player" ></iframe> -->
                             </div>
                         </div>
@@ -133,7 +135,7 @@
                     </div>
                 </div> -->
             </div>
-            <div class="paginatorclass">
+            <div class="paginatorclass" *ngIf="showpaginator">
                 <pagination-controls id="paginationid" class="my-paginator" (pageChange)="page = $event"></pagination-controls>
             </div>
         </div>

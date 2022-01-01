@@ -13,8 +13,10 @@ export class CropInfoComponent implements OnInit {
 
   public searchdata="";
   public responses=[];
+  public showpaginator=false;
   public title="Crop Cultivation";
   public url="https://www.youtube.com/embed/s-mreQn8RHM";
+  public options=[];
 
   totalresponses=30;
   page: number = 1;
@@ -36,7 +38,7 @@ export class CropInfoComponent implements OnInit {
     .subscribe((data: any) => {
       this.responses=data.items;
       console.log(data);
-      
+      this.showpaginator=true
     })
   }
 

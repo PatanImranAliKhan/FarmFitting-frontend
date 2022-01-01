@@ -16,19 +16,19 @@ export class SoilFertilityMapsDisplayComponent implements OnInit {
     ["JORHAT","SIVASAGAR","CACHAR","GOLAGHAT","KAMRUP","LAKHIMPUR","NAGAON","BARPETA","SONITPUR"],
     ["SAMASTIPUR","MUZAFFARPUR","ARWAL","NAWADA","NALANDA","DARBHANGA","PATNA","JEHANABAD","VAISHALI"],
     ["BALOD","BALODBAZAR","BASTAR","BEMETARA","DURG","KABIRDHAM","KORIYA","KORBA","KONDAGAON","MAHASAMUND","RAIGARH","RAIPUR"],
-    ["SOUTH GOA","NORTH GOA"],
-    ["ANAND","KHEDA","PANCHMAHALS","BHARUCH","AHMEDABAD","SABARKANTHA"],
-    ["HISAR","BHIWANI","PANIPAT","FATEHABAD","KAITHAL","SIRSA","KARNAL","JIND","MAHENDRAGARH","KURUKSHETRA"],
+    ["SOUTHGOA","NORTHGOA"],
+    ["ANAND","KHEDA","PANCHMAHALS","BARUCH","AHMEDABAD","SABARKANTHA"],
+    ["HISAR","BHIWANI","PANIPAT","FATEHABAD","KAITHAL","SIRSA","KARNAL","JIND","MAHENDRAG","KURUKSHETRA"],
     ["HAMIRPUR","BILASPUR","UNA","CHAMBA","MANDI","KANGRA","SHIMLA","SOLAN","KULLU"],
-    ["RAMNAGARAM","CHIKBALLAPURA","MYSORE","TUMKUR","HASSAN"],
-    ["MALLAPURUM","TRISSHURE","KOZIKODE","PALAKKAD","ALAPPUZHA","WAYANAD","KANNUR"],
-    ["JABALPUR","KATNI","SEONI","MANDLA","SHAHADOL","NARSINGHPUR","BHOPAL"],
-    ["AKOLA","AURANGABAD","BHANDARA","YAVATMAL","AMARAVATI","BULDHANA","NASIK","CHANDRAPUR","WASHIM","DHULE","SANGALI","SOLAPUR","JALNA","JALGAON","SATARA","PUNE"],
+    ["RAMNAGARAM","CHIKKABALLAPURA","MYSORE","TUMKUR","HASSAN"],
+    ["MALLAPURAM","THRISSUR","KOZIKODE","PALLAKAD","ALAPPUZHA","WAYANAD","KANNUR"],
+    ["JABALPUR","KATANI","SEONI","MANDLA","SHAHADOL","NARSINGHPUR","BHOPAL"],
+    ["AKOLA","AURANGABAD","BHANDARA","YAVATAMAL","AMARAVATI","BULDHANA","NASHIK","CHANDRAPUR","WASHIM","DHULE","SANGALI","SOLAPUR","JALNA","JALGAON","SATARA","PUNE"],
     ["PURI","CUTTACK","BHADRAK","ANUGUL"],
     ["LUDHIANA","JALANDHAR","NAWANSHAHAR","SANGRUR","RUPNAGAR","HOSHIARPUR","BATHINDA","AMRITSAR","FIROZPUR"],
     ["BIKANER","CHURU","GANGANAGAR","JAISALMER","ALWAR","KOTA","BHARATPUR","DHAULPUR"],
     ["THANJAVUR","NAGAPATTINAM","CUDDALORE","THIRUVARUR","TRICHURAPALLI","ERODE","VILLUPURAM","TIRUPPUR"],
-    ["KANPURNAGAR","ETAWAH","FARRUKHABAD","CHANDAULI","GORAKHPUR","VARANASI","RAEBARELI","PILIBHIT","SANTRAVIDASNAGAR","ALLAHABAD","LAKHIMPUR"],
+    ["KANPURNAGAR","ETAWAH","FARRUKHABAD","CHANDUALI","GORAKHPUR","VARANASI","RAEBARELI","PILIBHIT","SANTRAVIDASNAGAR","ALLAHABAD","KHERILAKHIMPUR"],
     ["UDHAMSINGHNAGAR","HARIDWAR","CHAMPAWAT","NAINITAL"],
     ["JALPAIGURI","BANKURA","NORTH24PARGANAS","HOOGHLY","MURSHIDABAD","BARDHAMAN","NADIA"]
   ]
@@ -95,7 +95,22 @@ export class SoilFertilityMapsDisplayComponent implements OnInit {
 
   GetSoilFertilityMap(dist: any,chemical: any)
   {
-    this.imageurl=`http://www.iiss.nic.in/Maps/${this.statename}/MAPS/${dist}_MAPS/${chemical}.jpg`
+    if(this.statename=="GOA")
+    {
+      this.imageurl=`http://www.iiss.nic.in/Maps/${this.statename}/${dist}_MAPS/${chemical}.jpg`
+    }
+    else if(this.statename=="HARYANA" && dist=="KAITHAL")
+    {
+      this.imageurl=`http://www.iiss.nic.in/Maps/${this.statename}/MAPS/${dist}_MAPS/${dist}_${chemical}.jpg`
+    }
+    else if(this.statename=="TAMILNADU" && dist=="CUDDALORE")
+    {
+      this.imageurl=`http://www.iiss.nic.in/Maps/${this.statename}/MAPS/${dist}_MAP/${chemical}.jpg`
+    }
+    else
+    {
+      this.imageurl=`http://www.iiss.nic.in/Maps/${this.statename}/MAPS/${dist}_MAPS/${chemical}.jpg`
+    }
     console.log(this.imageurl);
     
   }

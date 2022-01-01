@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import './translate.js'
 import { TranslateService } from '@ngx-translate/core';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +13,10 @@ export class HeaderComponent implements OnInit {
 
   public languages = [['English','EN'], ['French','FR'], ['Belgium','BG']];
 
-  constructor(private translate: TranslateService) { 
+  public details: any;
+  public userdata: any;
+
+  constructor(private toastr: ToastrService, private translate: TranslateService, private router: Router,) { 
     
     translate.setDefaultLang('en');
     // const browserlang=translate.getBrowserLang();
@@ -20,10 +25,29 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.details=localStorage.getItem('user');
+    this.userdata=JSON.parse(this.details)
+
+    if(this.details==null)
+    {
+      this.DisplayErrorToastr("Session time out Please Login Again")
+      this.router.navigate(['/login'])
+    }
+  }
+
+  DisplayErrorToastr(message: any)
+  {
+    this.toastr.error(message);
   }
 
   translateLanguageTo(lang: string) {
     this.translate.use(lang);
+  }
+
+  Logout()
+  {
+    localStorage.removeItem('user');
+    this.router.navigate(['/'])
   }
 
 }

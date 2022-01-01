@@ -9,10 +9,11 @@
                         NoteBook
                     </span>
                     <div class="wrap-input validate-input" data-validate="feedback">
-                        <textarea class="form-control" rows="5" formControlName="purpose" placeholder="text..."></textarea>
+                        <textarea class="form-control" rows="5" formControlName="purpose"
+                            placeholder="text..."></textarea>
                         <span class="focus-input"></span>
                     </div>
-                   
+
                     <div class="wrap-input validate-input" data-validate="Price is required">
                         <input class="input" type="number" formControlName="price" placeholder="price" required>
                         <span class="focus-input"></span>
@@ -39,27 +40,56 @@
     <div>
         <div class="row">
             <div class="col-md-6">
-                <div class="expenses-panel" >
+                <div class="expenses-panel">
                     <h3><b style="font-size: 22px;">EXPENSES</b></h3>
-                    <div *ngFor="let ex of expenses; let i = index">
+                    <!-- <div *ngFor="let ex of expenses; let i = index">
                         <div class="row" style="margin: 5px;">
                             <p class="col-sm-8"><span class="lefttext">{{i+1}}. &nbsp;&nbsp;{{ex['purpose']}}</span></p>
                             <p class="col-sm-4"><span class="pricedisplay">{{ex['price']}}</span></p>
                         </div>
-                    </div>
-                    <div class="totalamount">
+                    </div> -->
+                    <!-- <div class="totalamount">
                         <div class="row">
                             <p class="col-sm-8"><span class="lefttext"><b>Total Amount : </b></span></p>
                             <p class="col-sm-4"><span class="pricedisplay">{{expensesPrice}}</span></p>
                         </div>
-                    </div>
+                    </div> -->
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>S.No</th>
+                                <th>Purpose</th>
+                                <th>Price</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let ex of expenses; let i = index">
+                                <td>{{i+1}}</td>
+                                <td>{{ex['purpose']}}</td>
+                                <td>{{ex['price']}}</td>
+                                <td>
+                                    <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons"
+                                            (click)="GetDataIntoForm(ex['id'],ex['purpose'],ex['price'])" data-bs-toggle="modal"
+                                            data-bs-target="#exampleModal">&#xE254;</i></a>
+                                    <a class="delete" title="Delete" data-toggle="tooltip"><i
+                                            class="material-icons" (click)="DeleteRecord(ex['id'])" >&#xE872;</i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><b>Total Price: </b></td>
+                                <td><b>{{expensesPrice}}</b></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
 
             </div>
             <div class="col-md-6">
-                <div class="revenues-panel" >
+                <div class="revenues-panel">
                     <h3><b style="font-size: 22px;">REVENUES</b></h3>
-                    <div *ngFor="let rev of revenues; let i = index">
+                    <!-- <div *ngFor="let rev of revenues; let i = index">
                         <div class="row" style="margin: 5px;">
                             <p class="col-sm-8"><span class="lefttext">{{i+1}}. &nbsp;&nbsp;{{rev['purpose']}}</span></p>
                             <p class="col-sm-4"><span class="pricedisplay">{{rev['price']}}</span></p>
@@ -70,8 +100,101 @@
                             <p class="col-sm-8"><span class="lefttext"><b>Total Amount : </b></span></p>
                             <p class="col-sm-4"><span class="pricedisplay">{{revenuesPrice}}</span></p>
                         </div>
+                    </div> -->
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>S.No</th>
+                                <th>Purpose</th>
+                                <th>Price</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let rev of revenues; let i = index">
+                                <td>{{i+1}}</td>
+                                <td>{{rev['purpose']}}</td>
+                                <td>{{rev['price']}}</td>
+                                <td>
+                                    <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons"
+                                        (click)="GetDataIntoForm(rev['id'],rev['purpose'],rev['price'])" data-bs-toggle="modal"
+                                        data-bs-target="#revenueModal">&#xE254;</i></a>
+                                    <a class="delete" title="Delete" data-toggle="tooltip"><i
+                                            class="material-icons" (click)="DeleteRecord(rev['id'])" >&#xE872;</i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><b>Total Price: </b></td>
+                                <td><b>{{revenuesPrice}}</b></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Launch demo modal
+  </button> -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalToggleLabel">expenses Edit</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Purpose:</label>
+                        <input type="text" class="form-control" id="recipient-name" [(ngModel)]="editdatapurpose"
+                            style="border: 1px solid #000;">
+                    </div>
+                    <div class="mb-3">
+                        <label for="message-text" class="col-form-label">Price:</label>
+                        <input type="number" class="form-control" id="recipient-name" [(ngModel)]="editdataprice"
+                            style="border: 1px solid #000;">
                     </div>
                 </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" (click)="EditExpences()"
+                    data-bs-toggle="modal">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="revenueModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalToggleLabel">Revenues Edit</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Purpose:</label>
+                        <input type="text" class="form-control" id="recipient-name" [(ngModel)]="editdatapurpose"
+                            style="border: 1px solid #000;">
+                    </div>
+                    <div class="mb-3">
+                        <label for="message-text" class="col-form-label">Price:</label>
+                        <input type="number" class="form-control" id="recipient-name" [(ngModel)]="editdataprice"
+                            style="border: 1px solid #000;">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" (click)="EditExpences()"
+                    data-bs-toggle="modal">Save</button>
             </div>
         </div>
     </div>

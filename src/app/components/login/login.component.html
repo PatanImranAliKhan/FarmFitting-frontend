@@ -11,7 +11,7 @@
                     <span class="login-form-title">
                         Login
                     </span>
-                    <div class="wrap-input validate-input" data-validate="Valid email is required: ex@abc.xyz">
+                    <div class="wrap-input validate-input" data-validate="Valid email is required: ex@abc.xyz" style="margin-left: 8px;">
                         <input class="input" type="email" formControlName="email" (blur)="ValidateEmail()" pattern="[^@\s]+@[^@\s]+" placeholder="Email" required>
                         <span class="focus-input"></span>
                         <span class="symbol-input">
@@ -21,7 +21,7 @@
                     <div>
                         <span *ngIf="invalidemail"><small style="color: rgb(238, 117, 117); margin-left: 30px; margin-top: -20px;">invalid Email</small></span>
                     </div>
-                    <div class="wrap-input validate-input" data-validate="Password is required">
+                    <div class="wrap-input validate-input" data-validate="Password is required" style="margin-left: 8px;">
                         <input class="input" type="password" formControlName="password" (blur)="ValidatePassword()" placeholder="Password" required>
                         <span class="focus-input"></span>
                         <span class="symbol-input">
@@ -33,7 +33,7 @@
                     </div>
                     <div class="container-login-form-btn">
 						<div *ngIf="LoginForm.invalid">
-							<button class="login-form-btn" >Please fill all the fields</button>
+							<button class="login-form-btn2" >Please fill all the fields</button>
 						</div>
 						<div *ngIf="!LoginForm.invalid">
 							<button class="login-form-btn" (click)="Submit()">Login</button>
@@ -43,7 +43,7 @@
                         <button class="login-form-btn" [disabled]="LoginForm.invalid">Login</button>
                     </div> -->
                     <br>
-                    <div class="text-center p-t-136">
+                    <div class="text-center p-t-136" style="color: #fff;">
                         not an user? &nbsp;
                         <a class="txt2" href="/register">
                             Create your Account

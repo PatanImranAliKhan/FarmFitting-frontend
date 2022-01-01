@@ -22,6 +22,9 @@ export class NotebookComponent implements OnInit {
   public revenues=[]
   public details: any;
   public userdata: any;
+  public editdataid=0;
+  public editdatapurpose="";
+  public editdataprice=0;
 
   constructor(private toastr: ToastrService, private notebookservice: NotebookService,private route: ActivatedRoute, private router: Router) { }
 
@@ -32,7 +35,7 @@ export class NotebookComponent implements OnInit {
 
     if(this.details==null)
     {
-      this.DisplayErrorToastr("Session Time out Please Login Again")
+      this.DisplayErrorToastr("Session time out Please Login Again")
       this.router.navigate(['/login'])
     }
 
@@ -135,5 +138,71 @@ export class NotebookComponent implements OnInit {
   {
     this.toastr.success(message)
   }   
+
+  GetDataIntoForm(id: any,purp: any, prc: any)
+  {
+    this.editdataid=id;
+    this.editdatapurpose=purp;
+    this.editdataprice=prc;
+    console.log(this.editdatapurpose);
+    
+  }
+
+
+  EditExpences()
+  {
+    const object = {
+      id: this.editdataid,
+      email: this.userdata.email,
+      purpose: this.editdatapurpose,
+      price: this.editdataprice,
+      type: "Expenses"
+    }
+
+    console.log(object);
+    
+
+    this.notebookservice.updateFinance(object)
+    .subscribe((data: any) => {
+      this.DisplaySuccessToastr("Edited Successfully")
+      window.location.reload();
+    },(err: any) => {
+      this.DisplayErrorToastr("Not Edited")
+    } )
+  }
+
+  EditRevenue()
+  {
+    const object = {
+      id: this.editdataid,
+      email: this.userdata.email,
+      purpose: this.editdatapurpose,
+      price: this.editdataprice,
+      type: "Revenues"
+    }
+
+    this.notebookservice.updateFinance(object)
+    .subscribe((data: any) => {
+      this.DisplaySuccessToastr("Edited Successfully")
+      setTimeout(() => {
+        window.location.reload();
+      }, 1000);
+    },(err: any) => {
+      this.DisplayErrorToastr("Not Edited")
+    } )
+  }
+
+  DeleteRecord(id: any)
+  {
+    this.notebookservice.deleteRecord(id)
+    .subscribe((data: any) => {
+      this.DisplaySuccessToastr("Deleted Successfully")
+      setTimeout(() => {
+        window.location.reload();
+      }, 1000);
+    },(err: any) => {
+      this.DisplayErrorToastr("Not Edited")
+    } )
+  }
 
 }

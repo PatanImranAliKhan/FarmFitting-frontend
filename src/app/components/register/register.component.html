@@ -99,14 +99,14 @@
 					</div>
 					<div class="container-register-form-btn">
 						<div *ngIf="registerForm.invalid">
-							<button class="register-form-btn" (click)="Submit()">Please fill all the fields</button>
+							<button class="register-form-btn2" (click)="Submit()">Please fill all the fields</button>
 						</div>
 						<div *ngIf="!registerForm.invalid">
 							<button class="register-form-btn" (click)="Submit()">Register</button>
 						</div>
 					</div>
 					<br>
-					<div class="text-center p-t-136">
+					<div class="text-center p-t-136" style="color: #fff;">
 						Already have an account? &nbsp;
 						<a class="txt2" href="/login">
 							Login

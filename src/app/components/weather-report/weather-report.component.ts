@@ -36,6 +36,15 @@ export class WeatherReportComponent implements OnInit {
   constructor(private weatherservice: WeatherService) { }
 
   ngOnInit(): void {
+    this.weatherservice.getData("Mangalagiri")
+    .subscribe((data: any) => {
+      console.log(data);
+      this.temperature=data.main.temp;
+      this.pressure=data.main.pressure;
+      this.humidity=data.main.humidity;
+      this.windspeed=data.wind.speed;
+      this.checkPercent();
+    })
   }
 
   Search()

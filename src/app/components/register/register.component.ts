@@ -37,6 +37,12 @@ export class RegisterComponent implements OnInit {
       location: new FormControl('', [Validators.minLength(3), Validators.required]),
       password: new FormControl('', [Validators.minLength(8), Validators.required])
     })
+
+    const abc=localStorage.getItem('user') || "";
+    if(abc!="")
+    {
+      this.router.navigate(['/home'])
+    }
   }
 
   Submit()

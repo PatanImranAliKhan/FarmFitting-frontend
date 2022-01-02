@@ -28,6 +28,14 @@ export class LoginComponent implements OnInit {
       email: new FormControl('', Validators.minLength(10)),
       password: new FormControl('', Validators.minLength(8))
     });
+    const abc=localStorage.getItem('user') || "";
+    if(abc!="")
+    {
+      this.router.navigate(['/home'])
+    }
+    // console.log(abc);
+    
+
   }
 
   ValidateEmail() {
